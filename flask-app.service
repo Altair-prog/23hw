@@ -1,0 +1,12 @@
+[Unit]
+Description=Flask app service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/kali/app/
+Environment=FLASK_APP=app.py
+ExecStart=/home/kali/app/venv/bin/python -m flask run -h 0.0.0.0 -p 25000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
